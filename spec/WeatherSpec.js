@@ -4,7 +4,7 @@ describe('weather', function(){
     weather = new Weather();
   });
 
-  describe('isStormy', function(){
+  describe('_randomConditions', function(){
 
    it('returns random weather', function(){
 
