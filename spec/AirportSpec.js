@@ -32,6 +32,11 @@ describe('Airport', function(){
       expect(plane.land).toHaveBeenCalled();
     });
 
+    it('gives error if airport is full', function(){
+      for(i = 1; i <= 3; i++ ) { airport.land(plane); };
+      expect(function(){ airport.land(plane) }).toThrow("Airport Full!");
+    });
+
 
   });
 

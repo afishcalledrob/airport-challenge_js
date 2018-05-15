@@ -7,13 +7,18 @@ function Airport(){
 };
 
 Airport.prototype.land = function(plane){
+  if (this.planes.length >= this.capacity){
+    throw "Airport Full!"
+  };
   plane.land();
   this.planes.push(plane);
-
 };
+
 
 Airport.prototype.release = function(plane){
   plane.takeOff();
-  this.planes.pop(plane);
+  this.planes = this.planes.filter(function(p) {
+    return p !== plane
+  });
 
-}
+};
