@@ -1,12 +1,14 @@
 describe('Airport', function(){
 
   var airport;
-  var DEFAULT_CAPACITY = 3;
+  var DEFAULT_CAPACITY = 2;
 
 
   beforeEach(function(){
     airport = new Airport();
     plane = jasmine.createSpyObj('plane', ['takeOff', 'land']);
+    plane2 = jasmine.createSpyObj('plane', ['takeOff', 'land']);
+    plane3 = jasmine.createSpyObj('plane', ['takeOff', 'land']);
   });
 
   describe('#initialize', function(){
@@ -33,8 +35,15 @@ describe('Airport', function(){
     });
 
     it('gives error if airport is full', function(){
-      for(i = 1; i <= 3; i++ ) { airport.land(plane); };
-      expect(function(){ airport.land(plane) }).toThrow("Airport Full!");
+      airport.land(plane);
+      airport.land(plane2);
+      expect(function(){ airport.land(plane3) }).toThrow("Airport Full!");
+    });
+
+    it('gives error if the plane in question is already in airport', function(){
+      airport.land(plane);
+      expect(function(){ airport.land(plane) }).toThrow('Plane already docked');
+
     });
 
 

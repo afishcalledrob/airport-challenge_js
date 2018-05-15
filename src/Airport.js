@@ -1,4 +1,4 @@
-var DEFAULT_CAPACITY = 3;
+var DEFAULT_CAPACITY = 2;
 
 function Airport(){
 
@@ -9,9 +9,12 @@ function Airport(){
 Airport.prototype.land = function(plane){
   if (this.planes.length >= this.capacity){
     throw "Airport Full!"
+  } else if (this.planes.includes(plane)){
+    throw "Plane already docked"
+  } else {
+    plane.land();
+    this.planes.push(plane);
   };
-  plane.land();
-  this.planes.push(plane);
 };
 
 
