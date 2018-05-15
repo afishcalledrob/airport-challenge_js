@@ -8,8 +8,6 @@ Weather.prototype._randomConditions = function(){
   return CONDITIONS[Math.floor ( Math.random() * CONDITIONS.length)];
 };
 
-// Weather.prototype.isStormy = function(){
-//   this.randomConditions
-// };
-
-// CONDITIONS[Math.floor ( Math.random() * CONDITIONS.length)];
+Weather.prototype.isStormy = function(){
+  this._randomConditions() === 'fine';
+};
