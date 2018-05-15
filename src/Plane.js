@@ -1,9 +1,11 @@
-class Plane () {
-  constructor(landed) {
-    this.landed = landed;
-  }
+function Plane () {
+    this.landed = true;
 };
 
 Plane.prototype.land = function(){
-  self.landed = true;
+  this.landed = true;
+};
+
+Plane.prototype.takeOff = function(){
+  this.landed = false;
 };
