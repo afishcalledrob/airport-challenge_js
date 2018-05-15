@@ -25,13 +25,30 @@ describe('Airport', function(){
     it('lands and stores a plane', function(){
       airport.land(plane);
       expect(airport.planes).toContain(plane);
+    });
 
+    it('plane receives land instruction', function(){
+      airport.land(plane);
+      expect(plane.land).toHaveBeenCalled();
     });
 
 
   });
 
 
+  describe('#release', function(){
+    it('releases a plane', function(){
+      airport.land(plane);
+      airport.release(plane);
+      expect(airport.planes).not.toContain(plane);
+    });
 
+    it('plane receives take off instruction', function(){
+      airport.land(plane);
+      airport.release(plane);
+      expect(plane.takeOff).toHaveBeenCalled();
+    });
+
+  });
 
 });

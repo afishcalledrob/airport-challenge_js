@@ -7,7 +7,13 @@ function Airport(){
 };
 
 Airport.prototype.land = function(plane){
+  plane.land();
   this.planes.push(plane);
-  return this.planes;
 
 };
+
+Airport.prototype.release = function(plane){
+  plane.takeOff();
+  this.planes.pop(plane);
+
+}
