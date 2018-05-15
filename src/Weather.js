@@ -1,13 +1,15 @@
-function Weather(){
-  var CONDITIONS = ['stormy', 'stormy', 'fine', 'fine', 'fine']
+var CONDITIONS = ['stormy', 'stormy', 'fine', 'fine', 'fine'];
 
+function Weather(){
 
 };
 
 Weather.prototype._randomConditions = function(){
-  CONDITIONS[Math.floor ( Math.random() * CONDITIONS.length)];
+  return CONDITIONS[Math.floor ( Math.random() * CONDITIONS.length)];
 };
 
 // Weather.prototype.isStormy = function(){
 //   this.randomConditions
 // };
+
+// CONDITIONS[Math.floor ( Math.random() * CONDITIONS.length)];
